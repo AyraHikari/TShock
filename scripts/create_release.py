@@ -150,7 +150,7 @@ def run_bootstrapper():
     mintaka.wait()
     
     if (mintaka.returncode != 0):
-      raise CalledProcessError(mintaka.returncode)
+      raise subprocess.CalledProcessError(mintaka.returncode)
 
     # run the bootstrapper to generate the new OTAPI.dll
     os.chdir('./TerrariaServerAPI/TShock.Modifications.Bootstrapper/bin/' + build_config)
@@ -159,14 +159,14 @@ def run_bootstrapper():
     
     bootstrapper_proc.wait()
     if (bootstrapper_proc.returncode != 0):
-      raise CalledProcessError(bootstrapper_proc.returncode)
+      raise subprocess.CalledProcessError(bootstrapper_proc.returncode)
 
     tsapi_proc = subprocess.Popen(['msbuild', './TerrariaServerAPI/TerrariaServerAPI/TerrariaServerAPI.csproj', '/p:Configuration=' + build_config])
     
     tsapi_proc.wait()
     
     if (tsapi_proc.returncode != 0):
-      raise CalledProcessError(tsapi_proc.returncode)
+      raise subprocess.CalledProcessError(tsapi_proc.returncode)
 
 def build_software():
   release_proc = subprocess.Popen(['msbuild', './TShockAPI/TShockAPI.csproj', '/p:Configuration=Release'])
@@ -174,9 +174,9 @@ def build_software():
   release_proc.wait()
   debug_proc.wait()
   if (release_proc.returncode != 0):
-    raise CalledProcessError(release_proc.returncode)
+    raise subprocess.CalledProcessError(release_proc.returncode)
   if (debug_proc.returncode != 0):
-    raise CalledProcessError(debug_proc.returncode)
+    raise subprocess.CalledProcessError(debug_proc.returncode)
   
     
 if __name__ == '__main__':
