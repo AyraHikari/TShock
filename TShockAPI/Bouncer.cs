@@ -140,7 +140,7 @@ namespace TShockAPI
 			GetDataHandlers.DisplayJarTryPlacing += OnDisplayJarTryPlacing;
 			OTAPI.Hooks.Chest.QuickStack += OnQuickStack;
 			HookEvents.Terraria.Projectile.Kill_DirtAndFluidProjectiles_RunDelegateMethodPushUpForHalfBricks += OnProjectileDirtFluidKill;
-			HookEvents.Terraria.GameContent.CraftingRequests.CanCraftFromChest += OnChestCraftRequest;
+			// HookEvents.Terraria.GameContent.CraftingRequests.CanCraftFromChest += OnChestCraftRequest;
 
 
 			// The following section is based off Player.PlaceThing_Tiles_PlaceIt and Player.PlaceThing_Tiles_PlaceIt_GetLegacyTileStyle.
@@ -3161,7 +3161,7 @@ namespace TShockAPI
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="args"></param>
-		private static void OnChestCraftRequest(object sender, HookEvents.Terraria.GameContent.CraftingRequests.CanCraftFromChestEventArgs args)
+		/*private static void OnChestCraftRequest(object sender, HookEvents.Terraria.GameContent.CraftingRequests.CanCraftFromChestEventArgs args)
 		{
 			var plr = TShock.Players[args.whoAmI];
 
@@ -3184,7 +3184,7 @@ namespace TShockAPI
 				args.ContinueExecution = false;
 				return;
 			}
-		}
+		}*/
 
 		internal void OnSecondUpdate()
 		{
